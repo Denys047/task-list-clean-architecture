@@ -1,4 +1,4 @@
-package com.tasklist.task_list_clean_architecture.infrastructure.security;
+package com.tasklist.task_list_clean_architecture.infrastructure.security.password;
 
 import com.tasklist.task_list_clean_architecture.application.interfaces.security.PasswordHasher;
 import lombok.RequiredArgsConstructor;

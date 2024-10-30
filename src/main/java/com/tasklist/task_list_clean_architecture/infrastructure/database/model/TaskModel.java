@@ -1,14 +1,33 @@
 package com.tasklist.task_list_clean_architecture.infrastructure.database.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.tasklist.task_list_clean_architecture.application.consts.Status;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
+@Data
 @Entity
+@Table(name = "task")
+@NoArgsConstructor
+@AllArgsConstructor
 public class TaskModel {
 
     @Id
     private UUID id;
+
+    private String title;
+
+    private String description;
+
+    @Enumerated(value = EnumType.STRING)
+    private Status status;
+
+    private LocalDate dateStart;
+
+    private LocalDate dateEnd;
 
 }
