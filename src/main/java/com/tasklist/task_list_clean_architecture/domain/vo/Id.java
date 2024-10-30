@@ -6,21 +6,21 @@ import java.util.UUID;
 
 public class Id {
 
-    private final UUID value;
+    private final UUID id;
 
-    public Id(UUID value) {
-        if (value == null) {
+    public Id(UUID id) {
+        if (id == null) {
             throw new InvalidIdException();
         }
-        this.value = value;
+        this.id = id;
     }
 
     public Id() {
-        this.value = UUID.randomUUID();
+        this.id = UUID.randomUUID();
     }
 
-    public UUID getValue() {
-        return value;
+    public UUID getId() {
+        return id;
     }
 
 }
