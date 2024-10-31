@@ -8,6 +8,8 @@ import com.tasklist.task_list_clean_architecture.infrastructure.database.orm.Use
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.Optional;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 public class UserDaoIml implements UserDao {
@@ -24,6 +26,11 @@ public class UserDaoIml implements UserDao {
     @Override
     public boolean existByUsername(String username) {
         return false;
+    }
+
+    @Override
+    public Optional<User> findById(UUID id) {
+        return Optional.empty();
     }
 
 }

@@ -6,7 +6,6 @@ import com.tasklist.task_list_clean_architecture.application.dto.response.ApiRes
 import com.tasklist.task_list_clean_architecture.application.dto.response.JwtResponse;
 import com.tasklist.task_list_clean_architecture.application.dto.response.ReadUserDto;
 import com.tasklist.task_list_clean_architecture.application.service.AuthService;
-import com.tasklist.task_list_clean_architecture.application.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
