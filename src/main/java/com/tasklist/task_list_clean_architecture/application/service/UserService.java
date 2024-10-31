@@ -1,17 +1,18 @@
 package com.tasklist.task_list_clean_architecture.application.service;
 
-import com.tasklist.task_list_clean_architecture.application.dto.request.RegisterUserDto;
-import com.tasklist.task_list_clean_architecture.application.service.usercase.user.RegisterUserUseCase;
+import com.tasklist.task_list_clean_architecture.application.service.usercase.user.GetByIdUserUseCase;
 import com.tasklist.task_list_clean_architecture.domain.entity.User;
 import lombok.RequiredArgsConstructor;
+
+import java.util.UUID;
 
 @RequiredArgsConstructor
 public class UserService {
 
-    private final RegisterUserUseCase registerUserUseCase;
+    private final GetByIdUserUseCase getByIdUserUseCase;
 
-    public User register(RegisterUserDto registerUserDto){
-        return registerUserUseCase.handle(registerUserDto);
+    public User getById(UUID id){
+        return getByIdUserUseCase.handle(id);
     }
 
 }
