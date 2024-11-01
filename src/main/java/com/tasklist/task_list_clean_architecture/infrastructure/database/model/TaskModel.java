@@ -19,8 +19,10 @@ public class TaskModel {
     @Id
     private UUID id;
 
+    @Column(nullable = false)
     private String title;
 
+    @Column(nullable = false)
     private String description;
 
     @Enumerated(value = EnumType.STRING)
@@ -29,5 +31,9 @@ public class TaskModel {
     private LocalDate dateStart;
 
     private LocalDate dateEnd;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserModel userModel;
 
 }
