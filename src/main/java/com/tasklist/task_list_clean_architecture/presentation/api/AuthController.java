@@ -35,7 +35,11 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<ApiResponse<JwtResponse>> login(@RequestBody LoginUserDto loginUserDto) {
-        return null;
+        return ResponseEntity.ok(
+                new ApiResponse<>(
+                        List.of(authService.login(loginUserDto))
+                )
+        );
     }
 
 }

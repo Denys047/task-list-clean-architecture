@@ -41,8 +41,8 @@ public class User {
         return username;
     }
 
-    public Password getPassword() {
-        return password;
+    public String getPassword() {
+        return password.getPassword();
     }
 
     public String getRoleType() {
