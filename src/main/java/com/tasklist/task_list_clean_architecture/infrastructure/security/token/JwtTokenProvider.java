@@ -40,12 +40,22 @@ public class JwtTokenProvider implements TokenProvider {
                 .header().add("typ", "JWS").and()
                 .id(UUID.randomUUID().toString())
                 .issuer(issuer)
-                .subject(TokenSubject.WEB_AUTH_TOKEN.name())
+                .subject(userDetails.getUsername())
                 .audience().add(TokenAudience.WEB.name()).and()
                 .issuedAt(Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant()))
                 .expiration(Date.from(LocalDateTime.now().plusSeconds(expirationSeconds).atZone(ZoneId.systemDefault()).toInstant()))
                 .signWith(getKey())
                 .compact();
+    }
+
+    @Override
+    public String getUsernameFromToken(String token) {
+        return Jwts.parser()
+                .verifyWith(getKey())
+                .build()
+                .parseSignedClaims(token)
+                .getPayload()
+                .getSubject();
     }
 
     @Override

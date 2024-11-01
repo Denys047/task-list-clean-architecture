@@ -1,0 +1,19 @@
+services:
+  postgres:
+    restart: always
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=username
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=task-list
+    #    healthcheck:
+    #      test: [ "CMD-SHELL", "sh -c 'pg_isready -U ${POSTGRES_USER} -d
+    #      ${POSTGRES_DB}'" ]
+    #      interval: 30s
+    #      timeout: 10s
+    #      retries: 5
+
+
+

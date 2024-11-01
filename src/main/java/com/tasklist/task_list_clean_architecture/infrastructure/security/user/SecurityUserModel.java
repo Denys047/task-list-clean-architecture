@@ -15,8 +15,6 @@ public class SecurityUserModel implements DomainUseDetails {
 
     private final UserModel userModel;
 
-    private final String userModelId;
-
     @Override
     public String getUsername() {
         return userModel.getUsername();
