@@ -3,7 +3,6 @@ package com.tasklist.task_list_clean_architecture.presentation.api;
 import com.tasklist.task_list_clean_architecture.application.dto.response.ApiResponse;
 import com.tasklist.task_list_clean_architecture.application.dto.response.ReadUserDto;
 import com.tasklist.task_list_clean_architecture.application.dto.response.ReadUserTasksDto;
-import com.tasklist.task_list_clean_architecture.application.dto.response.ReadUserWithTasksDto;
 import com.tasklist.task_list_clean_architecture.application.service.TaskService;
 import com.tasklist.task_list_clean_architecture.application.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -43,4 +42,5 @@ public class UserController {
     public ResponseEntity<ApiResponse<ReadUserTasksDto>> getTasksByUserId(@PathVariable("id") UUID id) {
         return null;
     }
+
 }

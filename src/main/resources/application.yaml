@@ -1,6 +1,3 @@
-spring:
-  application:
-    name: service-task-list
 application:
   jwt:
     secretKey: 6bc9261a45c8b2abd388cf41972df0653a60c0a86826cd42ef86c4e582b9e838

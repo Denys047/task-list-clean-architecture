@@ -25,12 +25,27 @@ public class UserDaoIml implements UserDao {
 
     @Override
     public boolean existByUsername(String username) {
-        return false;
+        return userOrm.existByUsername(username);
     }
 
     @Override
     public Optional<User> findById(UUID id) {
         return Optional.empty();
+    }
+
+    @Override
+    public void update(User user) {
+
+    }
+
+    @Override
+    public boolean isTaskOwner(UUID userId, UUID taskId) {
+        return false;
+    }
+
+    @Override
+    public boolean delete(UUID id) {
+        return false;
     }
 
 }

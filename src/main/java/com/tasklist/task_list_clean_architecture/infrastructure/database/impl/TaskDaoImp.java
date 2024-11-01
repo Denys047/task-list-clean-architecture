@@ -6,6 +6,7 @@ import com.tasklist.task_list_clean_architecture.infrastructure.database.orm.Tas
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -19,8 +20,23 @@ public class TaskDaoImp implements TaskDao {
     }
 
     @Override
-    public List<Task> findAllTaskByUserId(UUID id) {
+    public Optional<Task> findById(UUID id) {
+        return Optional.empty();
+    }
+
+    @Override
+    public List<Task> findAllByUserId(UUID id) {
         return List.of();
+    }
+
+    @Override
+    public void update(Task task) {
+
+    }
+
+    @Override
+    public boolean delete(UUID id) {
+        return false;
     }
 
 }

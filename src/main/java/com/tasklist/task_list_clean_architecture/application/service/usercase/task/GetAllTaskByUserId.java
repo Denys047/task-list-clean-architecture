@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.UUID;
 
 @RequiredArgsConstructor
-public class QueryTaskUserCase {
+public class GetAllTaskByUserId {
 
     private final TaskDao taskDao;
 
-    public List<Task> getAllTaskByUserId(UUID id){
-        return taskDao.findAllTaskByUserId(id);
+    public List<Task> handle(UUID id) {
+        return taskDao.findAllByUserId(id);
     }
 
 }

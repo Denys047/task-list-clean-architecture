@@ -20,16 +20,29 @@ public class UserModel {
     @Id
     private UUID id;
 
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false, unique = true)
     private String username;
 
+    @Column(nullable = false)
     private String password;
 
     @Enumerated(value = EnumType.STRING)
     private Role role;
 
-    @OneToMany
+    @OneToMany(mappedBy = "userModel", cascade = CascadeType.ALL)
     private List<TaskModel> taskModels = new ArrayList<>();
+
+    public void addTask(TaskModel taskModel) {
+        this.taskModels.add(taskModel);
+        taskModel.setUserModel(this);
+    }
+
+    public void deleteTask(TaskModel taskModel) {
+        this.taskModels.remove(taskModel);
+        taskModel.setUserModel(null);
+    }
 
 }
