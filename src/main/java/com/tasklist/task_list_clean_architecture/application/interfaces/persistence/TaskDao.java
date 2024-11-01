@@ -14,7 +14,7 @@ public interface TaskDao {
 
     List<Task> findAllByUserId(UUID id);
 
-    void update(Task task);
+    Task update(Task task);
 
     boolean delete(UUID id);
 

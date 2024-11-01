@@ -30,8 +30,8 @@ public class TaskDaoImp implements TaskDao {
     }
 
     @Override
-    public void update(Task task) {
-
+    public Task update(Task task) {
+        return null;
     }
 
     @Override
