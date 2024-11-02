@@ -1,6 +1,5 @@
 package com.tasklist.task_list_clean_architecture.infrastructure.security.filter;
 
-import com.tasklist.task_list_clean_architecture.application.interfaces.security.DomainUseDetails;
 import com.tasklist.task_list_clean_architecture.application.interfaces.security.TokenProvider;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
