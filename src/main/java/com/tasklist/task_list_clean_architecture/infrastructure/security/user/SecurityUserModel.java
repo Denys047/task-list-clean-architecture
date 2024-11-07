@@ -1,17 +1,17 @@
 package com.tasklist.task_list_clean_architecture.infrastructure.security.user;
 
-import com.tasklist.task_list_clean_architecture.application.interfaces.security.DomainUseDetails;
 import com.tasklist.task_list_clean_architecture.infrastructure.database.model.UserModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
 @RequiredArgsConstructor
-public class SecurityUserModel implements DomainUseDetails {
+public class SecurityUserModel implements UserDetails {
 
     private final UserModel userModel;
 
@@ -28,10 +28,6 @@ public class SecurityUserModel implements DomainUseDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(userModel.getRole().name()));
-    }
-
-    public UUID getUserModelId() {
-        return userModel.getId();
     }
 
 }

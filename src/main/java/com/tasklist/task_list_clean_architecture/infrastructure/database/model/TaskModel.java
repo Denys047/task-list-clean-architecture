@@ -11,7 +11,7 @@ import java.util.UUID;
 
 @Data
 @Entity
-@Table(name = "task")
+@Table(name = "tasks")
 @NoArgsConstructor
 @AllArgsConstructor
 public class TaskModel {
@@ -34,6 +34,6 @@ public class TaskModel {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserModel userModel;
+    private UserModel user;
 
 }

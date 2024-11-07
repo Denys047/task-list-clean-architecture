@@ -2,13 +2,15 @@ package com.tasklist.task_list_clean_architecture.application.service.usercase.a
 
 import com.tasklist.task_list_clean_architecture.application.dto.request.LoginUserDto;
 import com.tasklist.task_list_clean_architecture.application.dto.response.JwtResponse;
-import com.tasklist.task_list_clean_architecture.application.interfaces.security.DomainUseDetails;
 import com.tasklist.task_list_clean_architecture.application.interfaces.security.TokenProvider;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 
+@Slf4j
 @RequiredArgsConstructor
 public class AuthLoginUseCase {
 
@@ -17,6 +19,7 @@ public class AuthLoginUseCase {
     private final AuthenticationManager authenticationManager;
 
     public JwtResponse handle(LoginUserDto loginUserDto) {
+        log.info("User login....");
         var authentication = authenticationManager
                 .authenticate(
                         new UsernamePasswordAuthenticationToken(
@@ -26,9 +29,9 @@ public class AuthLoginUseCase {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         var accessToken = tokenProvider.generateToken(authentication);
-        var userDetails = (DomainUseDetails) authentication;
+        var userDetails = (UserDetails) authentication;
 
-        return new JwtResponse(userDetails.getUserModelId(), userDetails.getUsername(), accessToken, null);
+        return new JwtResponse(null, userDetails.getUsername(), accessToken, null);
     }
 
 }
