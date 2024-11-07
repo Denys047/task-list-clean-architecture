@@ -18,7 +18,7 @@ public class UserDaoIml implements UserDao {
 
     @Override
     public User create(User user) {
-        UserModel userModel = new UserModel(user.getId(), user.getName(), user.getUsername(), user.getUsername(), Role.ROLE_USER, new ArrayList<>());
+        UserModel userModel = new UserModel(user.getId(), user.getName(), user.getUsername(), user.getPassword(), Role.ROLE_USER, new ArrayList<>());
         userOrm.save(userModel);
         return user;
     }

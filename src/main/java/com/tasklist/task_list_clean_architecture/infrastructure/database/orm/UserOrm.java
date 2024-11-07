@@ -11,15 +11,11 @@ import java.util.UUID;
 public interface UserOrm extends JpaRepository<UserModel, UUID> {
 
     @Query("""
-            SELECT COUNT(u) > 0 FROM Users u
+            SELECT COUNT(u) > 0 FROM UserModel u
             WHERE u.username = :username
             """)
     boolean existByUsername(@Param("username") String username);
 
-    @Query("""
-            SELECT Users u FROM Users
-            WHERE u.username = :username
-            """)
-    Optional<UserModel> findByUsername(@Param("username") String username);
+    Optional<UserModel> findUserModelByUsername(String username);
 
 }

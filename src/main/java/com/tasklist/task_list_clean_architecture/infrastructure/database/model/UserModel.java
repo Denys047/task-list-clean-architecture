@@ -32,17 +32,17 @@ public class UserModel {
     @Enumerated(value = EnumType.STRING)
     private Role role;
 
-    @OneToMany(mappedBy = "userModel", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<TaskModel> taskModels = new ArrayList<>();
 
     public void addTask(TaskModel taskModel) {
         this.taskModels.add(taskModel);
-        taskModel.setUserModel(this);
+        taskModel.setUser(this);
     }
 
     public void deleteTask(TaskModel taskModel) {
         this.taskModels.remove(taskModel);
-        taskModel.setUserModel(null);
+        taskModel.setUser(null);
     }
 
 }

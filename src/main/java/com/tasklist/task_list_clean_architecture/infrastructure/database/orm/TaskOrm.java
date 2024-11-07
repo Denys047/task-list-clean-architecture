@@ -11,8 +11,8 @@ import java.util.UUID;
 public interface TaskOrm extends JpaRepository<TaskModel, UUID> {
 
     @Query("""
-            SELECT t FROM Task t
-            WHERE t.userId = :id
+            SELECT t FROM TaskModel t
+            WHERE t.user = :id
             """)
     List<TaskModel> findAllByUserId(@Param("id") UUID id);
 

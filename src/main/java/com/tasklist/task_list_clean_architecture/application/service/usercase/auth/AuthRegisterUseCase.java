@@ -5,12 +5,12 @@ import com.tasklist.task_list_clean_architecture.application.dto.request.Registe
 import com.tasklist.task_list_clean_architecture.application.exception.InvalidRepeatablePasswordException;
 import com.tasklist.task_list_clean_architecture.application.exception.UsernameAlreadyExistException;
 import com.tasklist.task_list_clean_architecture.application.interfaces.persistence.UserDao;
-import com.tasklist.task_list_clean_architecture.application.interfaces.security.PasswordHasher;
 import com.tasklist.task_list_clean_architecture.domain.entity.User;
 import com.tasklist.task_list_clean_architecture.domain.vo.Id;
 import com.tasklist.task_list_clean_architecture.domain.vo.Password;
 import com.tasklist.task_list_clean_architecture.domain.vo.RawPassword;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
 
@@ -19,7 +19,7 @@ public class AuthRegisterUseCase {
 
     private final UserDao userDao;
 
-    private final PasswordHasher passwordHasher;
+    private final PasswordEncoder passwordEncoder;
 
     public User handle(RegisterUserDto registerUserDto) {
         if (!registerUserDto.getPassword().equals(registerUserDto.getRepeatablePassword())) {
@@ -36,7 +36,7 @@ public class AuthRegisterUseCase {
                 new Id(),
                 registerUserDto.getName(),
                 registerUserDto.getUsername(),
-                new Password(passwordHasher.hash(rawPassword.getRawPassword())),
+                new Password(passwordEncoder.encode(rawPassword.getRawPassword())),
                 Role.ROLE_USER.name(),
                 new ArrayList<>()
         ));
