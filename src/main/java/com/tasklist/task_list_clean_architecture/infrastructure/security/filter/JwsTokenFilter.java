@@ -15,7 +15,7 @@ import java.util.Objects;
 
 @Slf4j
 @RequiredArgsConstructor
-public class JwtTokenFilter extends OncePerRequestFilter {
+public class JwsTokenFilter extends OncePerRequestFilter {
 
     private final BearerAuthConverter authConverter;
 

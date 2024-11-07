@@ -1,6 +1,6 @@
 package com.tasklist.task_list_clean_architecture.presentation.config;
 
-import com.tasklist.task_list_clean_architecture.infrastructure.security.filter.JwtTokenFilter;
+import com.tasklist.task_list_clean_architecture.infrastructure.security.filter.JwsTokenFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,7 @@ public class SecurityConfig {
 
     private final String[] requestPermitAll = {"/api/v1/auth/**"};
 
-    private final JwtTokenFilter jwtTokenFilter;
+    private final JwsTokenFilter jwtTokenFilter;
 
     private final DaoAuthenticationProvider daoAuthenticationProvider;
 

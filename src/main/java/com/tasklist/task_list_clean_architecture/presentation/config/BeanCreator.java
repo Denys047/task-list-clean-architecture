@@ -18,8 +18,8 @@ import com.tasklist.task_list_clean_architecture.infrastructure.database.impl.Us
 import com.tasklist.task_list_clean_architecture.infrastructure.database.orm.TaskOrm;
 import com.tasklist.task_list_clean_architecture.infrastructure.database.orm.UserOrm;
 import com.tasklist.task_list_clean_architecture.infrastructure.security.filter.BearerAuthConverter;
-import com.tasklist.task_list_clean_architecture.infrastructure.security.filter.JwtTokenFilter;
-import com.tasklist.task_list_clean_architecture.infrastructure.security.token.JwtTokenProvider;
+import com.tasklist.task_list_clean_architecture.infrastructure.security.filter.JwsTokenFilter;
+import com.tasklist.task_list_clean_architecture.infrastructure.security.token.JwsTokenProvider;
 import com.tasklist.task_list_clean_architecture.infrastructure.security.user.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -84,7 +84,7 @@ public class BeanCreator {
 
     @Bean
     public TokenProvider tokenProvider() {
-        return new JwtTokenProvider();
+        return new JwsTokenProvider();
     }
 
     @Bean
@@ -93,8 +93,8 @@ public class BeanCreator {
     }
 
     @Bean
-    public JwtTokenFilter oncePerRequestFilter(BearerAuthConverter bearerAuthConverter) {
-        return new JwtTokenFilter(bearerAuthConverter);
+    public JwsTokenFilter oncePerRequestFilter(BearerAuthConverter bearerAuthConverter) {
+        return new JwsTokenFilter(bearerAuthConverter);
     }
 
     @Bean

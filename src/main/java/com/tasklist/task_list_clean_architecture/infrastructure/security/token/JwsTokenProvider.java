@@ -21,7 +21,7 @@ import java.util.UUID;
 import static com.tasklist.task_list_clean_architecture.infrastructure.security.consts.JwtExceptions.*;
 
 @Slf4j
-public class JwtTokenProvider implements TokenProvider {
+public class JwsTokenProvider implements TokenProvider {
 
     @Value("${application.jwt.secretKey}")
     private String secretKey;
